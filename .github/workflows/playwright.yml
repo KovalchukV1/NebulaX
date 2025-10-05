@@ -20,10 +20,10 @@ jobs:
     - name: Run Playwright tests (headless)
       run: npx playwright test
       env:
-        HEADLESS: 'true'          # примусово headless
-        BASE_URL: ${{ secrets.BASE_URL }}        # приклад секретів
-        APP_USER: ${{ secrets.APP_USER }}        # приклад секретів
-        APP_PASS: ${{ secrets.APP_PASS }}        # приклад секретів
+        HEADLESS: 'true'        
+        BASE_URL: ${{ secrets.BASE_URL }}      
+        USERNAME: ${{ secrets.USERNAME }}     
+        PASSWORD: ${{ secrets.PASSWORD }}      
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
