@@ -17,8 +17,13 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
+    - name: Run Playwright tests (headless)
       run: npx playwright test
+      env:
+        HEADLESS: 'true'          # примусово headless
+        BASE_URL: ${{ secrets.BASE_URL }}        # приклад секретів
+        APP_USER: ${{ secrets.APP_USER }}        # приклад секретів
+        APP_PASS: ${{ secrets.APP_PASS }}        # приклад секретів
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
